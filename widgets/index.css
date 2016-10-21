@@ -83,7 +83,11 @@ h2 {
 }
 
 .col-1-2 {
-  width: 50%;
+  width: 47.5%;
+}
+
+.col-1-2:last-child {
+  margin-left: 5%;
 }
 
 .col-1-4 {
@@ -94,7 +98,7 @@ h2 {
   margin: 15px 0;
 }
 
-.clock-box,.weather-box {
+.clock-box,.weather-box, .autocomplete-box {
   border: 2px solid black;
   padding: 20px;
   font-family: "Roboto Condensed";
@@ -115,4 +119,13 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.autocomplete-box {
+  box-sizing: border-box;
+  height: 210px;
+  background: url("https://media.giphy.com/media/niwwhXgKgrK9O/giphy.gif");
+  background-size: cover;
+  font-size: 16px;
+  text-shadow: 0 0 6px black;
 }

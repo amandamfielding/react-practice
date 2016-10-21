@@ -22,16 +22,18 @@ class AutoComplete extends React.Component {
     return (
       <div className="widget col-1-2">
         <h2>AutoComplete</h2>
-        <input type="text"
-               value={this.state.search}
-               onChange={this.filterNames.bind(this)} />
-        <ul>
-          {
-            this.state.filteredNames.map((name, i) => (
-              <li key={i}>{name}</li>
-            ))
-          }
-        </ul>
+        <div className="autocomplete-box">
+          <input type="text"
+                 value={this.state.search}
+                 onChange={this.filterNames.bind(this)} />
+          <ul>
+            {
+              this.state.filteredNames.map((name, i) => (
+                <li key={i}>{name}</li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     );
   }

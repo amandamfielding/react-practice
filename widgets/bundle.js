@@ -21808,19 +21808,23 @@
 	          null,
 	          "AutoComplete"
 	        ),
-	        _react2.default.createElement("input", { type: "text",
-	          value: this.state.search,
-	          onChange: this.filterNames.bind(this) }),
 	        _react2.default.createElement(
-	          "ul",
-	          null,
-	          this.state.filteredNames.map(function (name, i) {
-	            return _react2.default.createElement(
-	              "li",
-	              { key: i },
-	              name
-	            );
-	          })
+	          "div",
+	          { className: "autocomplete-box" },
+	          _react2.default.createElement("input", { type: "text",
+	            value: this.state.search,
+	            onChange: this.filterNames.bind(this) }),
+	          _react2.default.createElement(
+	            "ul",
+	            null,
+	            this.state.filteredNames.map(function (name, i) {
+	              return _react2.default.createElement(
+	                "li",
+	                { key: i },
+	                name
+	              );
+	            })
+	          )
 	        )
 	      );
 	    }
