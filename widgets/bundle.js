@@ -66,17 +66,26 @@
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
+	var _autocomplete = __webpack_require__(175);
+	
+	var _autocomplete2 = _interopRequireDefault(_autocomplete);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	  var root = document.getElementById('root');
+	
 	  var tabs = [{ title: 'tab 1', content: 'this is content' }, { title: 'tab 2', content: 'this is more content' }, { title: 'tab 3', content: 'this is even more content' }];
+	
+	  var names = ['Barbara the Bear', 'Zachary the Zebra', 'Billy the Goat', 'Reggie the Hedgie', 'Perry the Panda', 'Ollie the Owl'];
+	
 	  _reactDom2.default.render(_react2.default.createElement(
 	    'div',
 	    null,
 	    _react2.default.createElement(_clock2.default, null),
 	    _react2.default.createElement(_weather2.default, null),
-	    _react2.default.createElement(_tabs2.default, { tabs: tabs })
+	    _react2.default.createElement(_tabs2.default, { tabs: tabs }),
+	    _react2.default.createElement(_autocomplete2.default, { names: names })
 	  ), root);
 	});
 
@@ -21739,6 +21748,88 @@
 	}(_react2.default.Component);
 	
 	exports.default = Weather;
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AutoComplete = function (_React$Component) {
+	  _inherits(AutoComplete, _React$Component);
+	
+	  function AutoComplete(props) {
+	    _classCallCheck(this, AutoComplete);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AutoComplete).call(this, props));
+	
+	    _this.state = { search: "", filteredNames: _this.props.names };
+	    return _this;
+	  }
+	
+	  _createClass(AutoComplete, [{
+	    key: "filterNames",
+	    value: function filterNames(e) {
+	      var search = e.currentTarget.value;
+	
+	      var filteredNames = this.props.names.filter(function (name) {
+	        name = name.toLowerCase();
+	        return name.indexOf(search) === 0;
+	      });
+	
+	      this.setState({ search: search, filteredNames: filteredNames });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "widget col-1-2" },
+	        _react2.default.createElement(
+	          "h2",
+	          null,
+	          "AutoComplete"
+	        ),
+	        _react2.default.createElement("input", { type: "text",
+	          value: this.state.search,
+	          onChange: this.filterNames.bind(this) }),
+	        _react2.default.createElement(
+	          "ul",
+	          null,
+	          this.state.filteredNames.map(function (name, i) {
+	            return _react2.default.createElement(
+	              "li",
+	              { key: i },
+	              name
+	            );
+	          })
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return AutoComplete;
+	}(_react2.default.Component);
+	
+	exports.default = AutoComplete;
 
 /***/ }
 /******/ ]);
