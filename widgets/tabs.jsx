@@ -16,7 +16,7 @@ class Tabs extends React.Component {
     let {selectedTab} = this.state;
 
     return (
-      <div className="col-1-2">
+      <div className="widget col-1-2">
         <div className="col-1 cf">
           <h2>Tabs</h2>
           <ul className="tab-list cf">

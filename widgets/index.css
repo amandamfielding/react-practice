@@ -89,3 +89,30 @@ h2 {
 .col-1-4 {
   width: 25%;
 }
+
+.widget {
+  margin: 15px;
+}
+
+.clock-box,.weather-box {
+  border: 2px solid black;
+  padding: 20px;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+  font-size: 32px;
+  background: url("https://media.giphy.com/media/6LbxewmUrp06A/giphy.gif");
+  height: 180px;
+  color: white;
+}
+
+.clock-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-box {
+  background: url("https://media.giphy.com/media/BNX0W1uvONyfu/giphy.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
